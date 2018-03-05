@@ -4,7 +4,8 @@
     "heroku-postgresql"
   ],
   "scripts": {
-    "test": "bin/rails test && bin/rails test:system"
+    "test": "bin/rails test && bin/rails test:system",
+    "postdeploy": "./postdeploy-script.sh"
   },
   "environments": {
     "test": {
@@ -13,6 +14,12 @@
         { "url": "https://github.com/joshwlewis/heroku-buildpack-chromedriver" },
         { "url": "heroku/ruby" }
       ]
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 2,
+      "size": "my-new-dyno-type"
     }
   }
 }
